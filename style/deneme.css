@@ -1,0 +1,217 @@
+/*
+=====================================================
+ 1. Genel Stil ve Sıfırlama (Reset)
+=====================================================
+*/
+html, body {
+  height: 100%; /* HTML ve body elementlerinin yüksekliğini ekranın tamamı yapar. (Sticky Footer için gerekli)*/
+  margin: 0; /* Sayfa kenar boşluklarını (margin) sıfırlar.*/
+}
+* {
+  box-sizing: border-box; /* Kutu modelini 'border-box' olarak ayarlar (padding ve border genişliğe dahil edilir).*/
+  margin: 0; /* Tüm elementlerin dış boşluklarını (margin) sıfırlar.*/
+  padding: 0; /* Tüm elementlerin iç boşluklarını (padding) sıfırlar.*/
+}
+
+body {
+  background: #e9ecef; /* Sayfa arka plan rengini açık gri yapar.*/
+  font-family: 'Open Sans', Arial, sans-serif; /* Yazı tipini belirler.*/
+  line-height: 1.6; /* Satır yüksekliğini ayarlar.*/
+  color: #333; /* Metin rengini koyu gri yapar.*/
+  
+  display: flex; /* Body elementini bir dikey flex konteyneri yapar. (Sticky Footer için gerekli)*/
+  flex-direction: column; /* Flex öğelerini dikey olarak sıralar. (Sticky Footer için gerekli)*/
+}
+
+/* =====================================================
+ 2. Başlık Alanı (Header) ve Navigasyon
+=====================================================
+*/
+.header {
+  background-color: #004a8f; /* Başlık alanının arka plan rengini koyu mavi yapar.*/
+  padding: 10px 0; /* Üstten ve alttan 10 piksel iç boşluk bırakır.*/
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hafif bir gölge ekler.*/
+}
+
+.header table {
+  width: 100%; /* Tablonun genişliğini %100 yapar.*/
+  max-width: 960px; /* Tablonun maksimum genişliğini 960px ile sınırlar.*/
+  margin: 0 auto; /* Tabloyu yatayda ortalar.*/
+  border-collapse: collapse; /* Tablo kenarlıklarını birleştirir.*/
+}
+
+.header td {
+  text-align: center; /* Tablo hücrelerindeki içeriği ortalar.*/
+  padding: 0; /* Tablo hücrelerinin iç boşluğunu sıfırlar.*/
+}
+
+.header a {
+  color: #fff; /* Link metin rengini beyaz yapar.*/
+  text-decoration: none; /* Link alt çizgisini kaldırır.*/
+  padding: 15px 12px; /* Linklere iç boşluk vererek tıklama alanını genişletir.*/
+  transition: background-color 0.3s; /* Arka plan rengi değişimine yumuşak geçiş ekler.*/
+}
+
+.header a:hover {
+  background-color: #003366; /* Fare üzerine gelince arka plan rengini daha koyu mavi yapar.*/
+}
+
+/* =====================================================
+ 3. Ana İçerik Düzeni (Main Layout - anamenu)
+=====================================================
+*/
+.anamenu {
+  display: flex; /* Ana içerik alanını yatay Flexbox konteyneri yapar.*/
+  max-width: 1400px; /* Maksimum genişliğini 1400px olarak belirler (geniş ekranlar için).*/ 
+  margin: 20px auto; /* Üstten/alttan 20px boşluk bırakır ve yatayda ortalar.*/
+  padding: 0 20px; /* Sağdan ve soldan 20px iç boşluk bırakır. */
+  gap: 20px; /* Flex öğeleri (sidebar ve orta) arasına 20px boşluk bırakır.*/
+}
+
+/* =====================================================
+ 4. Yan Menü (Sidebar)
+=====================================================
+*/
+.sidebar {
+  width: 250px; /* Yan menü genişliğini sabit 250px yapar.*/
+  background: #ffffff; /* Beyaz arka plan.*/
+  color: #333; /* Metin rengi koyu gri.*/
+  padding: 20px; /* İç boşluk ekler.*/
+  border-radius: 8px; /* Köşeleri yuvarlar.*/
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Hafif gölge ekler.*/
+  position: sticky; top: 20px;  /* Yorum satırı: Sidebar'ı kayarken sabit tutmak için stil önerisi.*/
+}
+
+.sidebar h3 {
+  color: #004a8f; /* Başlık rengini koyu mavi yapar.*/
+  border-bottom: 2px solid #004a8f; /* Koyu mavi alt çizgi ekler.*/
+  padding-bottom: 10px; /* Alt çizgi öncesi boşluk.*/
+  margin-bottom: 15px; /* Alt çizgi sonrası boşluk.*/
+  font-size: 1.2em; /* Başlık yazı boyutunu ayarlar.*/
+}
+
+.sidebar ul {
+  list-style: none; /* Madde işaretlerini kaldırır.*/
+  padding: 0; /* İç boşluğu sıfırlar.*/
+}
+
+.sidebar li { 
+  margin: 8px 0; /* Liste öğeleri arasına dikey boşluk ekler.*/
+  font-size: 15px; /* Liste öğesi yazı boyutunu ayarlar.*/
+}
+
+.sidebar a {
+  color: #333; /* Link rengini koyu gri yapar.*/
+  text-decoration: none; /* Link alt çizgisini kaldırır.*/
+  transition: color 0.3s; /* Renk değişimine yumuşak geçiş ekler.*/
+  display: block; /* Linkin tüm satırı kaplamasını sağlar (daha büyük tıklama alanı).*/
+  padding: 5px 0; /* Linke dikey iç boşluk ekler.*/
+}
+
+.sidebar a:hover {
+  color: #e67e22; /* Fare üzerine gelince rengini turuncu yapar.*/
+}
+
+/* =====================================================
+ 5. Orta İçerik Alanı (orta)
+=====================================================
+*/
+.orta {
+  flex: 1; /* Geri kalan tüm yatay alanı kaplamasını sağlar (sidebar'dan sonra).*/
+}
+
+/* Resim Alanı (kayanresim) */
+.kayanresim {
+  width: 100%; /* Genişliği orta alanın %100'ü yapar.*/
+  margin-bottom: 20px; /* Alttan boşluk bırakır.*/
+  border-radius: 8px; /* Köşeleri yuvarlar.*/
+  overflow: hidden; /* Görselin köşeleri yuvarlatılmış kutunun dışına taşmasını engeller.*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif bir gölge ekler.*/
+}
+
+.kayanresim img {
+  width: 100%; /* Görselin genişliğini %100 yapar.*/
+  height: 350px; /* Görselin yüksekliğini sabit 350px yapar. */
+  object-fit: cover; /* Görselin en boy oranını koruyarak kutuyu dolduracak şekilde keser.*/
+  display: block; /* Görseli blok seviyesi element yapar.*/
+}
+
+/* Haberler/Duyurular (bilg) */
+.bilg {
+  display: flex; /* Haber ve duyuru kutularını yatay Flexbox ile düzenler.*/
+  gap: 20px; /* Kutular arasına 20px boşluk bırakır.*/
+  margin: 0; /* Dış boşlukları sıfırlar.*/
+}
+
+.haber, .duyuru {
+  background: #ffffff; /* Beyaz arka plan.*/
+  padding: 20px; /* İç boşluk ekler.*/
+  border-radius: 8px; /* Köşeleri yuvarlar.*/
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Hafif gölge ekler.*/
+  flex: 1; /* İki kutunun da eşit genişlikte olmasını sağlar.*/
+}
+
+.haber h3, .duyuru h3 {
+  color: #004a8f; /* Başlık rengini koyu mavi yapar.*/
+  margin-bottom: 15px; /* Alttan boşluk bırakır.*/
+  font-size: 1.4em; /* Başlık yazı boyutunu büyütür.*/
+  text-align: left; /* Başlıkları sola hizalar.*/
+}
+
+.haber ul, .duyuru ul {
+  list-style: none; /* Madde işaretlerini kaldırır.*/
+  padding-left: 0; /* Sol iç boşluğu sıfırlar.*/
+}
+
+.haber li, .duyuru li {
+  margin-bottom: 10px; /* Liste öğeleri arasına boşluk bırakır.*/
+  padding-left: 15px; /* Özel işaret için sola boşluk bırakır.*/
+  position: relative; /* Özel işaretin konumlandırılması için gereklidir.*/
+}
+
+.haber li:before, .duyuru li:before {
+  content: "•"; /* Listeye özel bir karakter (nokta) ekler.*/
+  color: #e67e22; /* Özel işaretin rengini turuncu yapar.*/
+  font-weight: bold; /* Kalın yapar.*/
+  display: inline-block; /* Inline-block olarak gösterir.*/
+  width: 1em; /* Genişliğini ayarlar.*/
+  margin-left: -1em; /* Boşluğu telafi etmek için sola kaydırır.*/
+  position: absolute; /* Mutlak konumlandırma yapar.*/
+  left: 0; /* Listenin soluna hizalar.*/
+}
+
+.haber a {
+  text-decoration: none; /* Link alt çizgisini kaldırır.*/
+  color: #004a8f; /* Link rengini kurumsal renge ayarlar.*/
+  transition: color 0.3s; /* Renk değişimine yumuşak geçiş ekler.*/
+}
+
+.haber a:hover {
+  text-decoration: underline; /* Fare üzerine gelince alt çizgi ekler.*/
+  color: #e67e22; /* Fare üzerine gelince rengini turuncu yapar.*/
+}
+
+/* =====================================================
+ 6. Alt Bilgi (Footer)
+=====================================================
+*/
+.footer {
+  margin-top: auto; /* Sticky Footer için: Üstteki boşluğu otomatik doldurarak footer'ı sayfanın en altına iter.*/
+  
+  background: #003366; /* Arka plan rengini koyu mavi yapar.*/
+  color: #ffffff; /* Metin rengini beyaz yapar.*/
+  padding: 25px 0; /* Dikey iç boşluk ekler.*/
+  text-align: center; /* Metni ortalar.*/
+  font-size: 0.9em; /* Yazı boyutunu küçültür.*/
+  width: 100%; /* Genişliğini %100 yapar.*/
+}
+
+.metin, .aka, .il {
+  width: 100%; /* Genişliğini %100 yapar.*/
+  max-width: 1400px; /* Maksimum genişliğini ana içerik ile uyumlu yapar.*/
+  margin: 40px auto; /* Dikey boşluk bırakır ve yatayda ortalar.*/
+  background: white; /* Beyaz arka plan.*/
+  padding: 25px; /* İç boşluk ekler.*/
+  border-radius: 8px; /* Köşeleri yuvarlar.*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge ekler.*/
+}

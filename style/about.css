@@ -1,0 +1,215 @@
+/*
+=====================================================
+ 1. Genel Stil ve Sıfırlama (Reset)
+=====================================================
+*/
+* {
+  /* Tüm elementler için kutu modelini 'border-box' olarak ayarlar. (Padding ve border genişliğe dahildir.) */
+  box-sizing: border-box; 
+  /* Tüm elementlerin dış boşluklarını sıfırlar. */
+  margin: 0;
+  /* Tüm elementlerin iç boşluklarını sıfırlar. */
+  padding: 0;
+}
+
+body {
+  /* Sayfa arka plan rengini açık gri yapar. */
+  background: #e9ecef; 
+  /* Yazı tipini belirler. */
+  font-family: 'Open Sans', Arial, sans-serif; 
+  /* Satır yüksekliğini ayarlar. */
+  line-height: 1.6;
+  /* Metin rengini koyu gri yapar. */
+  color: #333; 
+}
+
+/* =====================================================
+ 2. Başlık Alanı (Header) ve Navigasyon
+=====================================================
+*/
+.header {
+  /* Başlık alanının arka plan rengini koyu mavi yapar. */
+  background-color: #004a8f; 
+  /* Üstten ve alttan 10 piksel iç boşluk bırakır. */
+  padding: 10px 0; 
+  /* Hafif bir gölge ekler. */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.header table {
+  /* Tablonun genişliğini %100 yapar. */
+  width: 100%;
+  /* Tablonun maksimum genişliğini 960px ile sınırlar. */
+  max-width: 960px; 
+  /* Tabloyu yatayda ortalar. */
+  margin: 0 auto;
+  /* Tablo kenarlıklarını birleştirir. */
+  border-collapse: collapse;
+}
+
+.header td {
+  /* Tablo hücrelerindeki içeriği ortalar. */
+  text-align: center;
+  /* Tablo hücrelerinin iç boşluğunu sıfırlar. */
+  padding: 0; 
+}
+
+.header a {
+  /* Link metin rengini beyaz yapar. */
+  color: #fff;
+  /* Link alt çizgisini kaldırır. */
+  text-decoration: none;
+  /* Linklere iç boşluk vererek tıklama alanını genişletir. */
+  padding: 15px 12px; 
+  /* Arka plan rengi değişimine yumuşak geçiş ekler. */
+  transition: background-color 0.3s; 
+}
+
+.header a:hover {
+  /* Fare üzerine gelince arka plan rengini daha koyu mavi yapar. */
+  background-color: #003366; 
+}
+
+/* =====================================================
+ 3. Hakkımızda Sayfası İçeriği (metin)
+=====================================================
+*/
+.metin {
+  /* Genişliği %100 yapar. */
+  width: 100%;
+  /* İçerik kutusunun maksimum genişliğini 960px ile sınırlar. */
+  max-width: 960px; 
+  /* Dikeyde 40px boşluk bırakır ve yatayda ortalar. */
+  margin: 40px auto;
+  /* Beyaz arka plan. */
+  background: white;
+  /* İç boşluk ekler. */
+  padding: 30px; 
+  /* Köşeleri yuvarlar. */
+  border-radius: 8px;
+  /* Hafif bir gölge ekler. */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Metin rengini koyu gri yapar. */
+  color: #333; 
+  /* Daha rahat okunması için satır yüksekliğini artırır. */
+  line-height: 1.7; 
+}
+
+.metin h2 {
+  /* Başlık rengini koyu mavi yapar. */
+  color: #004a8f; 
+  /* Başlığı ortalar. */
+  text-align: center;
+  /* Alttan boşluk bırakır. */
+  margin-bottom: 25px;
+  /* Başlık yazı boyutunu büyütür. */
+  font-size: 2em;
+  /* Turuncu renkte alt çizgi ekler. */
+  border-bottom: 2px solid #e67e22; 
+  /* Alt çizgi öncesi boşluk. */
+  padding-bottom: 10px;
+}
+
+.metin h3 {
+  /* Alt başlık rengini koyu mavi yapar. */
+  color: #004a8f; 
+  /* Üstten boşluk bırakır. */
+  margin-top: 25px;
+  /* Alttan boşluk bırakır. */
+  margin-bottom: 15px;
+  /* Alt başlık yazı boyutunu ayarlar. */
+  font-size: 1.3em;
+}
+
+.metin p {
+  /* Paragrafı sola hizalar. */
+  text-align: left; 
+  /* Alttan boşluk bırakır. */
+  margin-bottom: 20px;
+  /* Paragraf yazı boyutunu ayarlar. */
+  font-size: 1.1em;
+}
+
+.metin strong {
+  /* Kalın metin rengini koyu mavi yapar. */
+  color: #004a8f; 
+}
+
+/* Yeni Değerler Kutusu (.degerler) Stili */
+.metin .degerler {
+  /* Açık mavi arka plan. */
+  background-color: #f0f8ff; 
+  /* Koyu mavi renkte soldan vurgu çizgisi ekler. */
+  border-left: 5px solid #004a8f; 
+  /* İç boşluk ekler. */
+  padding: 20px;
+  /* Dikeyde dış boşluk ekler. */
+  margin: 30px 0;
+  /* Köşeleri yuvarlar. */
+  border-radius: 8px;
+}
+
+.metin .degerler ul {
+  /* Madde işaretlerini kaldırır. */
+  list-style: none; 
+  /* Sol iç boşluğu sıfırlar. */
+  padding-left: 0;
+}
+
+.metin .degerler li {
+  /* Dikey iç boşluk ekler. */
+  padding: 5px 0;
+  /* Özel işaret için sola boşluk bırakır. */
+  padding-left: 20px;
+  /* Özel işaretin konumlandırılması için gereklidir. */
+  position: relative;
+  /* Alttan küçük boşluk bırakır. */
+  margin-bottom: 5px;
+}
+
+/* Vurgu kutusu içindeki listeye özel işaret ekleme */
+.metin .degerler li:before {
+  /* Listeye özel bir karakter (onay işareti) ekler. */
+  content: "✓"; 
+  /* İşaretin rengini turuncu yapar. */
+  color: #e67e22;
+  /* Kalın yapar. */
+  font-weight: bold;
+  /* Mutlak konumlandırma yapar. */
+  position: absolute;
+  /* Listenin soluna hizalar. */
+  left: 0;
+}
+
+/* Sayfa İçindeki Tüm Sıralı ve Sırasız Listeler (ol/ul) için genel stil */
+.metin ol, .metin ul {
+  /* Dikeyde dış boşluk ekler. */
+  margin: 20px 0;
+  /* Sol iç boşluk ekler. */
+  padding-left: 25px;
+}
+.metin li {
+  /* Liste öğeleri arasına boşluk bırakır. */
+  margin-bottom: 10px;
+}
+
+/* =====================================================
+ 4. Alt Bilgi (Footer) Stili
+=====================================================
+*/
+.footer1 {
+  /* İçeriğin kısalığı nedeniyle footer'ı aşağı itmek için üstten büyük boşluk bırakır. */
+  margin-top: 150px; 
+  /* Dikey iç boşluk ekler. */
+  padding: 25px 0;
+  /* Arka plan rengini koyu mavi yapar. */
+  background: #003366; 
+  /* Metni ortalar. */
+  text-align: center;
+  /* Metin rengini beyaz yapar. */
+  color: #ffffff;
+  /* Yazı boyutunu küçültür. */
+  font-size: 0.9em;
+  /* Genişliğini %100 yapar. */
+  width: 100%;
+}

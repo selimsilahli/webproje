@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title>İletişim</title>
+    <link  href="../style/info.css" rel="stylesheet">
+</head>
+<body>
+   <header class="header">
+        <table align="center">
+            <tr align="center" width="750">
+                <td width="150">
+                    <a href="../index.html" style="display:inline-block;
+                        color:#fff; text-decoration:none; padding:8px 12px;">
+                        Ana Sayfa
+                    </a>
+                </td>
+                <td width="150">
+                    <a href="hakkimizda.html" style="display:inline-block;
+                        color:#fff; text-decoration:none; padding:8px 12px;">
+                        Hakkımızda
+                    </a>
+                </td>
+
+                <td width="150">
+                    <a href="akadro.html" style="display:inline-block;
+                        color:#fff; text-decoration:none; padding:8px 12px;">
+                        Akademik Kadro
+                    </a>
+                </td>
+                <td width="150">
+                    <a href="galeri.html" style="display:inline-block;
+                        color:#fff; text-decoration:none; padding:8px 12px;">
+                        Galeri
+                    </a>
+                </td>
+                <td width="150">
+                    <a href="iletisim.html" style="display:inline-block;
+                        color:#fff; text-decoration:none; padding:8px 12px;">
+                        İletişim
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </header>
+    <div class="metin">
+        <h2 align="center">İletişim</h2>
+        <h3>Bizimle iletişime geçmek için aşağıdaki bilgileri kullanabilirsiniz:</h3>
+        <ul>
+            <li><b>Telefon:</b> 0 (254) 000 00 00</li>
+            <li><b>E-posta:</b> bizeulasin@okul.edu.tr</li>
+            <li><b>Adres:</b> Gölbaşı Anadolu Lisesi, Ankara / GÖLBAŞI</li>
+        </ul>
+        <h3>Konum</h3>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d607.4830812389366!2d32.81888362147204!3d39.780188386199745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d3422c2c3ef6c7%3A0x9073bfb5b203ac6f!2zQW5rYXJhIMSxbmFpdmVyc2l0ZXMgR8SxbGTDs2kgS29uZ3XDn3PDs2UsIMO8bmFyw7ZzdSBLYW3DvG5TdQ!5e0!3m2!1str!2str!4v1700749579447!5m2!1str!2str"
+            width="100%" height="300px" style="border:none;">
+        </iframe>
+        <h2 align="center">Bize Ulaşın</h2>
+        <form class="form">
+        <label>Adı Soyadı</label>
+            <input type="text" placeholder="Adınızı ve soyadınızı yazın" required>
+        <label>Email</label>
+            <input type="email" placeholder="ornek@email.com" required>
+        <label>Mesajınız</label>
+            <textarea rows="6" placeholder="Mesajınızı yazın" required></textarea>
+        <button type="submit" id="msj" onclick="mesajyolla()">Gönder</button>
+    </form>
+    </div>
+    <footer align="center"  class="footeril" style="color:#fff">
+        &copy; 2025 Gölbaşı Anadolu Lisesi - Tüm Hakları Saklıdır.
+    </footer> 
+    <script>
+        function mesajyolla(){
+            alert("Mesajınız Gönderildi.")
+        }
+    </script>
+</body>
+</html>

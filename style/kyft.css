@@ -1,0 +1,171 @@
+/*
+=====================================================
+ 1. GENEL STİL VE SIFIRLAMA (RESET) 👕
+=====================================================
+*/
+html, body {
+  /* Sayfanın tüm yüksekliği kaplaması için (Sticky Footer) */
+  height: 100%; 
+  margin: 0;
+}
+
+* {
+  /* Kutu modelini border-box yapar (padding ve border genişliğe dahildir) */
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Genel stil ayarları */
+  background: #e9ecef; /* Açık gri arka plan */
+  font-family: 'Open Sans', Arial, sans-serif; 
+  line-height: 1.6;
+  color: #333; 
+  
+  /* Dikey Flexbox düzeni (Sticky Footer için) */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ana içerik kapsayıcısı (footer'ın en alta itilmesini sağlar) */
+.content-wrapper {
+  /* Kalan tüm dikey alanı kaplar */
+  flex-grow: 1; 
+}
+
+
+/* ======================================================
+ 2. BAŞLIK ALANI (HEADER) ve NAVİGASYON 🧭
+======================================================
+*/
+.header {
+  background-color: #004a8f; /* Koyu Mavi */
+  padding: 10px 0; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+/* HTML'deki tablo yapısını koruduğunuz için mevcut stiller */
+.header table {
+  width: 100%;
+  max-width: 960px; /* Navigasyon içeriği genişliği */
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.header td {
+  text-align: center;
+  padding: 0; 
+}
+
+.header a {
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 12px; 
+  transition: background-color 0.3s; 
+  /* HTML içindeki inline stilleri geçersiz kılmak için 'display: block' şarttır */
+  display: block !important; 
+}
+
+.header a:hover {
+  background-color: #003366; 
+}
+
+/* ======================================================
+ 3. KIYAFET İÇERİK ALANI (.metin) 📄
+======================================================
+*/
+.metin {
+  /* İçerik kutusunu ortalar */
+  width: 100%;
+  max-width: 1000px; /* Galeri için geniş alan */
+  margin: 40px auto;
+  background: white;
+  padding: 30px; 
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+  /* Ana Başlık */
+  color: #004a8f; 
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2em;
+  border-bottom: 2px solid #e67e22; /* Turuncu vurgu çizgisi */
+  padding-bottom: 10px;
+}
+
+.yonetmelik-metni p {
+  /* Yönetmelik paragraf stili */
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  text-align: justify;
+}
+
+/* ======================================================
+ 4. KIYAFET GALERİSİ (.kiyafet-galeri) 🖼️
+======================================================
+*/
+.kiyafet-galeri h3 {
+  color: #004a8f;
+  margin: 30px 0 20px 0;
+  border-left: 5px solid #e67e22;
+  padding-left: 10px;
+}
+
+.kiyafet-galeri {
+  /* Grid (Izgara) düzeni */
+  display: grid;
+  /* Ekran genişliğine göre en az 250px genişliğinde sütunlar oluşturur */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 25px; /* Görseller arası boşluk */
+  padding: 10px;
+}
+
+.kiyafet-modeli {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+  cursor: pointer; /* Tıklanabilir olduğunu belirtir */
+}
+
+.kiyafet-modeli:hover {
+  /* Hafif bir büyütme ve gölge efekti */
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.kiyafet-modeli img {
+  width: 100%;
+  height: 350px; /* Sabit yükseklik (görsel tutarlılığı için) */
+  object-fit: cover; /* Resmi en-boy oranını koruyarak kutuyu dolduracak şekilde keser */
+  display: block;
+}
+
+.kiyafet-aciklama {
+  padding: 10px 15px;
+  font-size: 0.95em;
+  color: #555;
+  background-color: #f9f9f9;
+}
+
+
+/* ======================================================
+ 5. ALT BİLGİ (FOOTER) ⬇️
+======================================================
+*/
+.footeraka {
+  /* Sticky Footer için: Kalan tüm boşluğu yukarı iter */
+  margin-top: auto; 
+  padding: 25px 0;
+  background: #003366; /* Koyu Mavi */
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.9em;
+  width: 100%;
+}

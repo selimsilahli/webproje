@@ -1,0 +1,296 @@
+/*
+=====================================================
+ 1. Genel Stil ve Sıfırlama (Reset) ve Sticky Footer
+=====================================================
+*/
+html, body {
+  /* Sticky Footer için: sayfanın yüksekliğini tam ekran yapar */
+  height: 100%; 
+  /* Sayfa kenar boşluklarını (margin) sıfırlar. */
+  margin: 0;
+}
+
+* {
+  /* Tüm elementler için kutu modelini 'border-box' olarak ayarlar (padding ve border genişliğe dahil edilir). */
+  box-sizing: border-box; 
+  /* Tüm elementlerin iç boşluklarını (padding) sıfırlar. */
+  padding: 0;
+}
+
+body {
+  /* Sayfa arka plan rengini açık gri yapar. */
+  background: #e9ecef;
+  /* Yazı tipini belirler. */
+  font-family: 'Open Sans', Arial, sans-serif; 
+  /* Satır yüksekliğini ayarlar. */
+  line-height: 1.6;
+  /* Metin rengini koyu gri yapar. */
+  color: #333; 
+  
+  /* Sticky Footer için: Body elementini dikey bir flex konteyneri yapar. */
+  display: flex;
+  /* Flex öğelerini dikey olarak sıralar. (Sticky Footer için gerekli) */
+  flex-direction: column;
+}
+
+/* ======================================================
+ 2. Başlık Alanı (Header) ve Navigasyon
+======================================================
+*/
+.header {
+  /* Başlık alanının arka plan rengini koyu mavi yapar. */
+  background-color: #004a8f;
+  /* Üstten ve alttan 10 piksel iç boşluk bırakır. */
+  padding: 10px 0; 
+  /* Hafif bir gölge ekler. */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.header table {
+  /* Tablonun genişliğini %100 yapar. */
+  width: 100%;
+  /* Tablonun maksimum genişliğini 960px ile sınırlar. */
+  max-width: 960px; 
+  /* Tabloyu yatayda ortalar. */
+  margin: 0 auto;
+  /* Tablo kenarlıklarını birleştirir. */
+  border-collapse: collapse;
+}
+
+.header td {
+  /* Tablo hücrelerindeki içeriği ortalar. */
+  text-align: center;
+  /* Tablo hücrelerinin iç boşluğunu sıfırlar. */
+  padding: 0; 
+}
+
+.header a {
+  /* Link metin rengini beyaz yapar. */
+  color: #fff;
+  /* Link alt çizgisini kaldırır. */
+  text-decoration: none;
+  /* Linklere iç boşluk vererek tıklama alanını genişletir. */
+  padding: 15px 12px; 
+  /* Arka plan rengi değişimine yumuşak geçiş ekler. */
+  transition: background-color 0.3s; 
+}
+
+.header a:hover {
+  /* Fare üzerine gelince arka plan rengini daha koyu mavi yapar. */
+  background-color: #003366; 
+}
+
+/* ======================================================
+ 3. İletişim İçeriği Alanı (.metin)
+======================================================
+*/
+.metin {
+  /* Genişliği %100 yapar. */
+  width: 100%;
+  /* Ana içerik kutusunun maksimum genişliğini 800px ile sınırlar. */
+  max-width: 800px; 
+  /* Dikeyde 40px boşluk bırakır ve yatayda ortalar. */
+  margin: 40px auto;
+  /* Beyaz arka plan. */
+  background: white;
+  /* İç boşluk ekler. */
+  padding: 30px; 
+  /* Köşeleri yuvarlar. */
+  border-radius: 8px;
+  /* Hafif bir gölge ekler. */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Sticky Footer için: Kalan tüm dikey alanı kaplamasını sağlar. */
+  flex-grow: 1; 
+}
+
+.metin h2 {
+  /* Başlık rengini koyu mavi yapar. */
+  color: #004a8f;
+  /* Başlığı ortalar. */
+  text-align: center;
+  /* Alttan boşluk bırakır. */
+  margin-bottom: 25px;
+  /* Başlık yazı boyutunu büyütür. */
+  font-size: 2em;
+  /* Turuncu renkte alt çizgi ekler. */
+  border-bottom: 2px solid #e67e22; 
+  /* Alt çizgi öncesi boşluk. */
+  padding-bottom: 10px;
+}
+
+.metin h3 {
+  /* Ara başlık rengini koyu gri yapar. */
+  color: #333;
+  /* Üstten boşluk bırakır. */
+  margin-top: 20px;
+  /* Alttan boşluk bırakır. */
+  margin-bottom: 10px;
+  /* Ara başlık yazı boyutunu ayarlar. */
+  font-size: 1.3em;
+}
+
+.metin ul {
+  /* Madde işaretlerini kaldırır. */
+  list-style: none;
+  /* Sol iç boşluğu sıfırlar. */
+  padding-left: 0;
+  /* Alttan boşluk bırakır. */
+  margin-bottom: 30px;
+}
+
+.metin li {
+  /* Liste öğeleri arasına boşluk bırakır. */
+  margin-bottom: 8px;
+  /* Liste öğesi yazı boyutunu ayarlar. */
+  font-size: 1.1em;
+  /* Özel ikon için sola boşluk bırakır. */
+  padding-left: 25px;
+  /* Özel ikonun konumlandırılması için gereklidir. */
+  position: relative;
+}
+
+/* İletişim listesi için özel ikon/işaret */
+.metin li:before {
+  /* Listenin ilk öğesine telefon emojisi ekler. */
+  content: "📞";
+  /* Emoji rengini ayarlar (CSS emojide tam çalışmaz). */
+  color: #e67e22;
+  /* Mutlak konumlandırma yapar. */
+  position: absolute;
+  /* Listenin soluna hizalar. */
+  left: 0;
+}
+
+.metin li:nth-child(2):before {
+  /* Listenin ikinci öğesine (e-posta) zarf emojisi ekler. */
+  content: "✉️"; 
+}
+.metin li:nth-child(3):before {
+  /* Listenin üçüncü öğesine (adres) konum emojisi ekler. */
+  content: "📍";
+}
+
+/* Harita Stili */
+iframe {
+  /* Haritanın üstünden ve altından boşluk bırakır. */
+  margin: 20px 0;
+  /* Köşeleri yuvarlar. */
+  border-radius: 8px;
+  /* Hafif gölge ekler. */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ======================================================
+ 4. Form Stili (.form)
+======================================================
+*/
+.form {
+  /* Genişliği %100 yapar. */
+  width: 100%;
+  /* Formun maksimum genişliğini 500px ile sınırlar. */
+  max-width: 500px; 
+  /* Yatayda ortalar, üstten 30px boşluk bırakır. */
+  margin: 30px auto 0 auto;
+  /* Açık gri arka plan. */
+  background: #f9f9f9;
+  /* İç boşluk ekler. */
+  padding: 25px;
+  /* Köşeleri yuvarlar. */
+  border-radius: 8px;
+  /* Çok açık gri kenarlık ekler. */
+  border: 1px solid #eee;
+  /* Çok hafif gölge ekler. */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.form label {
+  /* Yazıyı kalınlaştırır. */
+  font-weight: 600; 
+  /* Etiketin tüm satırı kaplamasını sağlar. */
+  display: block;
+  /* Alttan boşluk bırakır. */
+  margin-bottom: 8px;
+  /* Etiket rengini koyu mavi yapar. */
+  color: #004a8f;
+  /* Etiket yazı boyutunu ayarlar. */
+  font-size: 1.1em;
+}
+
+.form input,
+.form textarea {
+  /* Genişliği %100 yapar. */
+  width: 100%;
+  /* İç boşluk ekler. */
+  padding: 12px;
+  /* Alttan boşluk bırakır. */
+  margin-bottom: 20px;
+  /* Açık gri kenarlık ekler. */
+  border: 1px solid #ddd;
+  /* Köşeleri hafifçe yuvarlar. */
+  border-radius: 5px;
+  /* Mobil cihazlarda zoom engellemek için minimum 16px yapar. */
+  font-size: 16px;
+  /* Metin kutusunun sadece dikey olarak yeniden boyutlandırılmasına izin verir. */
+  resize: vertical; 
+  /* Kenarlık rengi değişimine yumuşak geçiş ekler. */
+  transition: border-color 0.3s;
+}
+
+.form input:focus,
+.form textarea:focus {
+  /* Element seçildiğinde (tıklandığında) kenarlık rengini turuncu yapar. */
+  border-color: #e67e22; 
+  /* Varsayılan odaklama (focus) çerçevesini kaldırır. */
+  outline: none; 
+}
+
+.form button {
+  /* Buton arka planını turuncu yapar. */
+  background: #e67e22;
+  /* Buton metin rengini beyaz yapar. */
+  color: white;
+  /* İç boşluk ekler. */
+  padding: 12px 25px;
+  /* Kenarlığı kaldırır. */
+  border: none;
+  /* Köşeleri yuvarlar. */
+  border-radius: 5px;
+  /* Yazı boyutunu ayarlar. */
+  font-size: 1em;
+  /* Kalın yapar. */
+  font-weight: bold;
+  /* Farenin üzerine gelince el işareti olmasını sağlar. */
+  cursor: pointer;
+  /* Arka plan rengi değişimine yumuşak geçiş ekler. */
+  transition: background-color 0.3s;
+  /* Butonun tüm satırı kaplamasını sağlar. */
+  display:block;
+  /* Butonu yatayda ortalar, üstten 20px boşluk bırakır. */
+  margin: 20px auto 0;
+}
+
+.form button:hover {
+  /* Fare üzerine gelince arka plan rengini koyu turuncu yapar. */
+  background: #d35400;
+}
+
+/* ======================================================
+ 5. Alt Bilgi (Footer)
+======================================================
+*/
+.footeril {
+  /* Sticky Footer için: Üstteki boşluğu otomatik doldurarak footer'ı sayfanın en altına iter. */
+  margin-top: auto; 
+  /* Dikey iç boşluk ekler. */
+  padding: 25px 0;
+  /* Arka plan rengini koyu mavi yapar. */
+  background: #003366; 
+  /* Metni ortalar. */
+  text-align: center;
+  /* Metin rengini beyaz yapar. */
+  color: #ffffff;
+  /* Yazı boyutunu küçültür. */
+  font-size: 0.9em;
+  /* Genişliğini %100 yapar. */
+  width: 100%;
+}

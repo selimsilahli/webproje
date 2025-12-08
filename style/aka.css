@@ -1,0 +1,199 @@
+/*
+=====================================================
+ 1. Genel Stil ve Sıfırlama (Reset) -- Güncellemeler burada!
+=====================================================
+*/
+html, body {
+  /* HTML ve BODY'nin tüm ekran yüksekliğini kaplamasını sağlar */
+  height: 100%; 
+  /* Sayfa kenar boşluklarını sıfırlar */
+  margin: 0;
+}
+
+* {
+  /* Tüm elementler için kutu modelini 'border-box' olarak ayarlar. (Padding ve border genişliğe dahil edilir.) */
+  box-sizing: border-box; 
+  /* Tüm elementlerin iç boşluklarını sıfırlar. */
+  padding: 0;
+}
+
+body {
+  /* Sayfa arka plan rengini açık gri yapar. */
+  background: #e9ecef; 
+  /* Yazı tipini belirler. */
+  font-family: 'Open Sans', Arial, sans-serif; 
+  /* Satır yüksekliğini ayarlar. */
+  line-height: 1.6;
+  /* Metin rengini koyu gri yapar. */
+  color: #333; 
+  
+  /* Sticky Footer için: body içeriğini dikey bir Flexbox konteyneri yapar. */
+  display: flex;
+  /* Flex öğelerini dikey olarak sıralar. */
+  flex-direction: column;
+}
+
+/*
+
+/* ======================================================
+ 2. Başlık Alanı (Header) ve Navigasyon
+======================================================
+*/
+.header {
+  /* Başlık alanının arka plan rengini koyu mavi yapar. */
+  background-color: #004a8f; 
+  /* Üstten ve alttan 10 piksel iç boşluk bırakır. */
+  padding: 10px 0; 
+  /* Hafif bir gölge ekler. */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.header table {
+  /* Tablonun genişliğini %100 yapar. */
+  width: 100%;
+  /* Tablonun maksimum genişliğini 960px ile sınırlar. */
+  max-width: 960px; 
+  /* Tabloyu yatayda ortalar. */
+  margin: 0 auto;
+  /* Tablo kenarlıklarını birleştirir. */
+  border-collapse: collapse;
+}
+
+.header td {
+  /* Tablo hücrelerindeki içeriği ortalar. */
+  text-align: center;
+  /* Tablo hücrelerinin iç boşluğunu sıfırlar. */
+  padding: 0; 
+}
+
+.header a {
+  /* Link metin rengini beyaz yapar. */
+  color: #fff;
+  /* Link alt çizgisini kaldırır. */
+  text-decoration: none;
+  /* Linklere iç boşluk vererek tıklama alanını genişletir. */
+  padding: 15px 12px; 
+  /* Arka plan rengi değişimine yumuşak geçiş ekler. */
+  transition: background-color 0.3s; 
+}
+
+.header a:hover {
+  /* Fare üzerine gelince arka plan rengini daha koyu mavi yapar. */
+  background-color: #003366; 
+}
+
+/* ======================================================
+ 3. Akademik Kadro Alanı (.aka - Grid Kapsayıcı)
+======================================================
+*/
+.aka {
+  /* Genişliği %100 yapar. */
+  width: 100%;
+  /* Maksimum genişliği 1200px ile sınırlar. */
+  max-width: 1200px; 
+  /* Dikeyde 40px boşluk bırakır ve yatayda ortalar. */
+  margin: 40px auto;
+  /* Beyaz arka plan. */
+  background: white;
+  /* İç boşluk ekler. */
+  padding: 30px;
+  /* Köşeleri yuvarlar. */
+  border-radius: 8px;
+  /* Hafif bir gölge ekler. */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
+  /* Alanı bir Grid (Izgara) konteyneri yapar. */
+  display: grid;
+  /* Ekran genişliğine göre (min 250px) otomatik sütunlar oluşturur ve alanı eşit paylaştırır. */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  /* Kartlar arasındaki boşluğu (gap) 25px yapar. */
+  gap: 25px; 
+}
+
+/* Kadro Kartı Stili (.kadro-kart) */
+.kadro-kart {
+  /* Beyaz arka plan. */
+  background: #ffffff;
+  /* Açık gri kenarlık ekler. */
+  border: 1px solid #ddd;
+  /* Köşeleri yuvarlar. */
+  border-radius: 8px;
+  /* Kenar yuvarlaklığını korur (içerik dışarı taşmaz). */
+  overflow: hidden; 
+  /* Metni ortalar. */
+  text-align: center;
+  /* Transform ve gölge değişimine yumuşak geçiş ekler. */
+  transition: transform 0.3s, box-shadow 0.3s;
+  /* Hafif gölge ekler. */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.kadro-kart:hover {
+  /* Fare üzerine gelince kartı dikeyde 5px yukarı kaydırır (3D etkisi). */
+  transform: translateY(-5px); 
+  /* Daha belirgin bir gölge ekler. */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.kadro-kart h3 {
+  /* Koyu mavi başlık arka planı. */
+  background-color: #004a8f; 
+  /* Beyaz yazı rengi. */
+  color: #ffffff; 
+  /* İç boşluk ekler. */
+  padding: 15px 10px;
+  /* Dış boşluğu sıfırlar. */
+  margin: 0;
+  /* Başlık yazı boyutunu ayarlar. */
+  font-size: 1.1em;
+  /* Kalın yazı tipi. */
+  font-weight: 700;
+}
+
+.kadro-kart p {
+  /* Görev/Branş metin rengini turuncu yapar. */
+  color: #e67e22; 
+  /* İç boşluk ekler. */
+  padding: 10px;
+  /* Dış boşluğu sıfırlar. */
+  margin: 0;
+  /* Yazı boyutunu hafifçe küçültür. */
+  font-size: 0.95em;
+  /* Eğik yazı tipi. */
+  font-style: italic;
+  /* Üstten ince bir ayırıcı çizgi ekler. */
+  border-top: 1px solid #f0f0f0;
+}
+
+/* Yöneticiler için Özel Vurgu (İsteğe bağlı) */
+.kadro-kart.yonetim h3 {
+  /* Yönetici başlığına turuncu arka plan rengi verir. */
+  background-color: #e67e22;
+}
+.kadro-kart.yonetim p {
+  /* Yönetici branşına kurumsal mavi metin rengi verir. */
+  color: #004a8f; 
+}
+
+
+/*=====================================================
+ 4. Alt Bilgi (Footer)
+=====================================================
+*/
+.footeraka {
+  /* Sticky Footer için: Sayfanın geri kalanından tüm boşluğu alır ve footer'ı aşağı iter. */
+  margin-top: auto; 
+  /* Dikey iç boşluk ekler. */
+  padding: 25px 0;
+  /* Arka plan rengini koyu mavi yapar. */
+  background: #003366; 
+  /* Metni ortalar. */
+  text-align: center;
+  /* Metin rengini beyaz yapar. */
+  color: #ffffff;
+  /* Yazı boyutunu küçültür. */
+  font-size: 0.9em;
+  /* Genişliğini %100 yapar. */
+  width: 100%;
+  /* Bu kural, eski bir margin-top kuralını geçersiz kılmak için yeterlidir. */
+}

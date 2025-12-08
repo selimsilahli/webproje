@@ -1,0 +1,185 @@
+/*
+=====================================================
+  1. Genel Stil ve Sıfırlama (Reset) ve Sticky Footer
+=====================================================
+*/
+html, body {
+  height: 100%; /* HTML ve body elementlerinin yüksekliğini ekranın tamamı yapar. (Sticky Footer için gerekli) */
+  margin: 0; /* Sayfa kenar boşluklarını (margin) sıfırlar. */
+}
+
+* {
+  box-sizing: border-box; /* Tüm elementler için kutu modelini 'border-box' olarak ayarlar (padding ve border genişliğe dahildir). */
+  padding: 0; /* Tüm elementlerin iç boşluklarını (padding) sıfırlar. */
+}
+
+body {
+  background: #e9ecef; /* Sayfa arka plan rengini açık gri yapar. */
+  font-family: 'Open Sans', Arial, sans-serif; /* Yazı tipini belirler. */
+  line-height: 1.6; /* Satır yüksekliğini ayarlar. */
+  color: #333; /* Metin rengini koyu gri yapar. */
+  
+  display: flex; /* Body elementini bir flex konteyneri yapar. (Sticky Footer için gerekli) */
+  flex-direction: column; /* Flex öğelerini dikey olarak sıralar. (Sticky Footer için gerekli) */
+}
+
+/* ======================================================
+ 2. Başlık Alanı (Header) ve Navigasyon
+======================================================
+*/
+.header {
+  background-color: #004a8f; /* Başlık alanının arka plan rengini koyu mavi yapar. */
+  padding: 10px 0; /* Üstte ve altta 10 piksel iç boşluk bırakır. */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hafif bir gölge ekler. */
+}
+
+.header table {
+  width: 100%; /* Tablonun genişliğini %100 yapar. */
+  max-width: 960px; /* Tablonun maksimum genişliğini belirler. */
+  margin: 0 auto; /* Tabloyu yatayda ortalar. */
+  border-collapse: collapse; /* Tablo kenarlıklarını birleştirir. */
+}
+
+.header td {
+  text-align: center; /* Tablo hücrelerindeki içeriği ortalar. */
+  padding: 0; /* Tablo hücrelerinin iç boşluğunu sıfırlar. */
+}
+
+.header a {
+  color: #fff; /* Link metin rengini beyaz yapar. */
+  text-decoration: none; /* Link alt çizgisini kaldırır. */
+  padding: 15px 12px; /* Linklere iç boşluk vererek tıklama alanını genişletir. */
+  transition: background-color 0.3s; /* Arka plan rengi değişimine yumuşak geçiş (animasyon) ekler. */
+}
+
+.header a:hover {
+  background-color: #003366; /* Fare üzerine gelince arka plan rengini daha koyu mavi yapar. */
+}
+
+/* ======================================================
+ 3. Galeri İçeriği Alanı
+======================================================
+*/
+.galeri-kapsayici {
+  width: 100%; /* Kapsayıcının genişliğini %100 yapar. */
+  max-width: 1200px; /* Fotoğraflar için maksimum genişlik belirler. */
+  margin: 40px auto; /* Üstten ve alttan 40px boşluk bırakır ve yatayda ortalar. */
+  padding: 0 20px; /* Sağdan ve soldan 20px iç boşluk bırakır. */
+  flex-grow: 1; /* Sticky Footer için: Kalan tüm dikey alanı kaplamasını sağlar. */
+}
+
+.galeri-baslik {
+  color: #004a8f; /* Başlık metin rengini koyu mavi yapar. */
+  text-align: center; /* Başlığı ortalar. */
+  margin-bottom: 30px; /* Alttan 30px dış boşluk bırakır. */
+  font-size: 2em; /* Başlık yazı boyutunu büyütür. */
+  border-bottom: 2px solid #e67e22; /* Turuncu renkte 2px alt çizgi ekler. */
+  padding-bottom: 10px; /* Alt çizgiden önce 10px iç boşluk bırakır. */
+}
+
+/* Fotoğraf Izgarası (Grid) */
+.galeri-izgara {
+  display: grid; /* Izgara düzeni (Grid Layout) kullanır. */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Sütunları dinamik olarak ayarlar (min 300px, max eşit genişlik). */
+  gap: 20px; /* Izgaradaki elemanlar arasına 20px boşluk bırakır. */
+  padding: 10px; /* Izgaraya hafif iç boşluk ekler. */
+}
+
+.galeri-kart {
+  background: #ffffff; /* Kart arka planını beyaz yapar. */
+  border-radius: 8px; /* Köşeleri yuvarlar. */
+  overflow: hidden; /* Kart dışına taşan içeriği gizler (özellikle görsel köşeleri için). */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge ekler. */
+  transition: transform 0.3s; /* Dönüşüm (transform) efektine yumuşak geçiş ekler. */
+  cursor: pointer; /* Farenin kart üzerine geldiğinde el işareti olmasını sağlar. */
+}
+
+.galeri-kart:hover {
+  transform: scale(1.02); /* Fare üzerine gelince kartı %2 oranında büyütür. */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Daha belirgin bir gölge ekler. */
+}
+
+.galeri-kart img {
+  width: 100%; /* Görselin genişliğini kartın tamamı yapar. */
+  height: 220px; /* Tüm resimlerin yüksekliğini sabit 220px yapar. */
+  object-fit: cover; /* Resmi en boy oranını koruyarak kartı dolduracak şekilde keser. */
+  display: block; /* Görseli blok seviyesi element yapar. */
+}
+
+.alt-yazi {
+  padding: 10px; /* İç boşluk ekler. */
+  font-size: 0.95em; /* Yazı boyutunu hafifçe küçültür. */
+  color: #555; /* Metin rengini gri yapar. */
+  text-align: center; /* Metni ortalar. */
+  background: #f9f9f9; /* Hafif gri bir arka plan ekler. */
+}
+
+/* ======================================================
+ 4. Alt Bilgi (Footer)
+======================================================
+*/
+.footeril {
+  margin-top: auto; /* Sticky Footer için: Üstteki boşluğu otomatik doldurarak footer'ı sayfanın en altına iter.*/
+  
+  background: #003366; /* Arka plan rengini koyu mavi yapar.*/
+  color: #ffffff; /* Metin rengini beyaz yapar.*/
+  padding: 25px 0; /* Dikey iç boşluk ekler.*/
+  text-align: center; /* Metni ortalar.*/
+  font-size: 0.9em; /* Yazı boyutunu küçültür.*/
+  width: 100%; /* Genişliğini %100 yapar.*/
+}
+
+/* ======================================================
+ 6. Modal (Lightbox) Stilleri
+======================================================
+*/
+.modal {
+  display: none; /* Başlangıçta modal penceresini gizler. (JS ile 'block' yapılır) */
+  position: fixed; /* Ekran pozisyonunu sabitler. */
+  z-index: 1000; /* Diğer tüm elementlerin üstünde görünmesini sağlar. */
+  padding-top: 60px; /* Üstten 60px boşluk bırakır. */
+  left: 0; /* Sol kenara sıfırlar. */
+  top: 0; /* Üst kenara sıfırlar. */
+  width: 100%; /* Genişliğini ekranın tamamı yapar. */
+  height: 100%; /* Yüksekliğini ekranın tamamı yapar. */
+  overflow: auto; /* İçerik sığmazsa kaydırma çubuğu çıkmasını sağlar. */
+  background-color: rgb(0,0,0); /* Tamamen siyah arka plan rengi (eski tarayıcılar için). */
+  background-color: rgba(0,0,0,0.9); /* %90 opaklıkta yarı şeffaf siyah arka plan rengi. */
+}
+
+.modal-content {
+  margin: auto; /* Dikeyde ve yatayda ortalanmasına yardımcı olur. */
+  display: block; /* Blok seviyesi element yapar. */
+  width: 90%; /* Genişliğini %90 yapar. */
+  max-width: 900px; /* Maksimum genişliğini 900px ile sınırlar. */
+  border-radius: 8px; /* Köşeleri yuvarlar. */
+}
+
+#caption {
+  margin: 15px auto; /* Üstten/alttan boşluk bırakır ve yatayda ortalar. */
+  display: block; /* Blok seviyesi element yapar. */
+  width: 80%; /* Genişliğini %80 yapar. */
+  text-align: center; /* Metni ortalar. */
+  color: #ccc; /* Açık gri metin rengi. */
+  padding: 10px 0; /* Üstten ve alttan 10px iç boşluk bırakır. */
+  font-size: 1.2em; /* Yazı boyutunu büyütür. */
+}
+
+.close {
+  position: absolute; /* Modala göre konumlandırılır. */
+  top: 15px; /* Modalı pencerenin üst kenarından 15px aşağıda. */
+  right: 35px; /* Modal pencerenin sağ kenarından 35px solda. */
+  color: #f1f1f1; /* Kapatma işaretinin rengi. */
+  font-size: 40px; /* Yazı boyutunu büyütür (büyük X işareti için). */
+  font-weight: bold; /* Kalın yazı tipi. */
+  transition: 0.3s; /* Renk değişimine yumuşak geçiş ekler. */
+  cursor: pointer; /* Farenin üzerine gelince el işareti olmasını sağlar. */
+  z-index: 1001; /* Modal içeriğinden de üstte görünmesini sağlar. */
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb; /* Fare üzerine gelince rengini hafifçe koyulaştırır. */
+  text-decoration: none; /* Alt çizgiyi kaldırır (genellikle focus için). */
+  cursor: pointer; /* Fare üzerine gelince el işareti olmasını sağlar. */
+}
