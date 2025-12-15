@@ -294,3 +294,54 @@ iframe {
   /* Genişliğini %100 yapar. */
   width: 100%;
 }
+/* --- ALT MENÜ (DROPDOWN) STİLLERİ --- */
+
+/* 1. Ana Menü Öğesi için Konum Ayarı (Hakkımızda linkini çevreleyen DIV) */
+/* Alt menü içeriğinin buna göre konumlanmasını sağlar. */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    /* td'den gelen padding/margin etkilerini dengelemek için gerekebilir */
+}
+
+/* 2. Alt Menü İçeriği Stili (Vizyonumuz ve Başarılarımız) */
+.dropdown-content {
+    display: none; /* KRİTİK: Varsayılan olarak menüyü gizle */
+    position: absolute; /* Ana menü öğesine göre konumlandır */
+    background-color: #333; /* Header arka plan rengine yakın bir ton */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    z-index: 1000; /* Diğer tüm elemanların üzerinde görünmesini sağla */
+    top: 100%; /* Ana menü öğesinin hemen altına hizala */
+    /* Alt menüyü ortalamak veya sola/sağa hizalamak için 'left' değeri ayarlanabilir. */
+    left: 0; 
+}
+
+/* 3. Alt Menüdeki Bağlantıların Stili */
+.dropdown-content a {
+    color: #fff !important; /* Metin rengini ana menü ile uyumlu yap */
+    padding: 10px 15px !important;
+    text-decoration: none;
+    display: block; /* Bağlantının tüm genişliği kaplamasını sağlar */
+    text-align: left;
+    white-space: nowrap;
+    /* Ana menüdeki inline stilin etkisini geçersiz kıldık */
+}
+
+/* 4. Alt Menü Bağlantılarının Hover (Üzerine Gelme) Stili */
+.dropdown-content a:hover {
+    background-color: #007bb6; /* Vurgulayıcı bir renk */
+}
+
+/* 5. KRİTİK: Fare Ana Menü Öğesinin Üzerine Geldiğinde Alt Menüyü Göster */
+/* Kullanıcı .dropdown (Hakkımızda kapsayıcısı) üzerine geldiğinde, 
+   içindeki .dropdown-content'i görünür yap. */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 6. Hakkımızda linkinin hover stili (isteğe bağlı, görsel tutarlılık için) */
+/* Bu, alt menü açıkken ana menü linkinin de vurgulu kalmasını sağlayabilir. */
+.dropdown:hover > a {
+    background-color: rgba(0, 0, 0, 0.2);
+}

@@ -178,8 +178,13 @@ body {
   margin-left: -1em; /* Boşluğu telafi etmek için sola kaydırır.*/
   position: absolute; /* Mutlak konumlandırma yapar.*/
   left: 0; /* Listenin soluna hizalar.*/
+  margin-left: 3px;
 }
-
+.metin ul {
+    list-style-type: none; /* Madde işaretlerini (noktaları) kaldırır */
+    padding-left: 0;      /* Listeyi sola kaydırır, varsayılan girintiyi sıfırlar */
+    margin-left: 0;       /* Tarayıcı varsayılan kenar boşluğunu sıfırlar */
+}
 .haber a {
   text-decoration: none; /* Link alt çizgisini kaldırır.*/
   color: #004a8f; /* Link rengini kurumsal renge ayarlar.*/
@@ -214,4 +219,146 @@ body {
   padding: 25px; /* İç boşluk ekler.*/
   border-radius: 8px; /* Köşeleri yuvarlar.*/
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge ekler.*/
+}
+/* --- ALT MENÜ (DROPDOWN) STİLLERİ --- */
+
+/* 1. Ana Menü Öğesi için Konum Ayarı (Hakkımızda linkini çevreleyen DIV) */
+/* Alt menü içeriğinin buna göre konumlanmasını sağlar. */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    /* td'den gelen padding/margin etkilerini dengelemek için gerekebilir */
+}
+
+/* 2. Alt Menü İçeriği Stili (Vizyonumuz ve Başarılarımız) */
+.dropdown-content {
+    display: none; /* KRİTİK: Varsayılan olarak menüyü gizle */
+    position: absolute; /* Ana menü öğesine göre konumlandır */
+    background-color: #333; /* Header arka plan rengine yakın bir ton */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    z-index: 1000; /* Diğer tüm elemanların üzerinde görünmesini sağla */
+    top: 100%; /* Ana menü öğesinin hemen altına hizala */
+    /* Alt menüyü ortalamak veya sola/sağa hizalamak için 'left' değeri ayarlanabilir. */
+    left: 0; 
+}
+
+/* 3. Alt Menüdeki Bağlantıların Stili */
+.dropdown-content a {
+    color: #fff !important; /* Metin rengini ana menü ile uyumlu yap */
+    padding: 10px 15px !important;
+    text-decoration: none;
+    display: block; /* Bağlantının tüm genişliği kaplamasını sağlar */
+    text-align: left;
+    white-space: nowrap;
+    /* Ana menüdeki inline stilin etkisini geçersiz kıldık */
+}
+
+/* 4. Alt Menü Bağlantılarının Hover (Üzerine Gelme) Stili */
+.dropdown-content a:hover {
+    background-color: #007bb6; /* Vurgulayıcı bir renk */
+}
+
+/* 5. KRİTİK: Fare Ana Menü Öğesinin Üzerine Geldiğinde Alt Menüyü Göster */
+/* Kullanıcı .dropdown (Hakkımızda kapsayıcısı) üzerine geldiğinde, 
+   içindeki .dropdown-content'i görünür yap. */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 6. Hakkımızda linkinin hover stili (isteğe bağlı, görsel tutarlılık için) */
+/* Bu, alt menü açıkken ana menü linkinin de vurgulu kalmasını sağlayabilir. */
+.dropdown:hover > a {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+/* --- basarilarimiz.html Sayfası İçin Özel Stiller --- */
+
+/* Sayfa başlığı */
+.sayfa-baslik {
+    color: #004a8f; /* Kurumsal renk */
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Giriş paragrafı */
+.giris-metni {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-left: 5px solid #004a8f;
+}
+
+/* Başarı Kartlarını içeren ana kapsayıcı */
+.basari-kartlari {
+    display: flex; /* Kartları yan yana dizer */
+    flex-wrap: wrap; /* Gerekirse alt satıra geçmesini sağlar */
+    gap: 20px; /* Kartlar arasındaki boşluk */
+    justify-content: space-between; /* Kartları eşit aralıklarla yerleştirir */
+}
+
+/* Her bir başarı kartının stili */
+.basari-kart {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 10px); /* Orta alanı ikiye böler, gap'i düşer */
+    min-width: 300px; /* Küçük ekranlarda en az bu kadar olsun */
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.basari-kart:hover {
+    transform: translateY(-5px); /* Hafifçe yukarı kaydır */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.basari-kart h3 {
+    color: #333;
+    margin-top: 0;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.basari-kart p {
+    color: #666;
+    font-size: 0.95em;
+}
+
+/* Başarı türüne göre etiketler (küçük, köşede) */
+.etiket {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #004a8f;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 4px 10px;
+    border-bottom-left-radius: 8px;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+/* Alt menüde aktif olan sayfayı göstermek için (opsiyonel) */
+.active-submenu {
+    background-color: #004a8f !important;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+/* Başarı Kartları Temasına göre renkli kenarlıklar (isteğe bağlı) */
+.akademik {
+    border-left: 5px solid #e74c3c; /* Kırmızımsı */
+}
+.sportif {
+    border-left: 5px solid #2ecc71; /* Yeşilli */
+}
+.sanatsal {
+    border-left: 5px solid #f1c40f; /* Sarımsı */
 }
