@@ -117,25 +117,81 @@ body {
 =====================================================
 */
 .orta {
-  flex: 1; /* Geri kalan tüm yatay alanı kaplamasını sağlar (sidebar'dan sonra).*/
+ flex: 1; /* Geri kalan tüm yatay alanı kaplamasını sağlar (sidebar'dan sonra).*/
 }
 
-/* Resim Alanı (kayanresim) */
+/* Resim Alanı (kayanresim-kapsayici - YENİ ANA KONTEYNER) */
+.kayanresim-kapsayici {
+  width: 100%; /* Genişliği orta alanın %100'ü yapar. */
+  margin-bottom: 20px; /* Alttan boşluk bırakır. */
+  border-radius: 8px; /* Köşeleri yuvarlar. */
+  overflow: hidden; /* Görselin köşeleri yuvarlatılmış kutunun dışına taşmasını engeller. */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif bir gölge ekler. */
+  
+  /* Slider için KRİTİK: Okları konumlandırmak için */
+  position: relative; 
+  max-width: 100%; 
+  margin: 0 0 20px 0; /* Alttan boşluk bırakır. */
+}
+
+/* Slaytları tutan iç konteyner (Opsiyonel, sadece Flexbox ile kaydırmak isterseniz. JS ile yapıldığı için şimdilik basit tutulabilir) */
 .kayanresim {
-  width: 100%; /* Genişliği orta alanın %100'ü yapar.*/
-  margin-bottom: 20px; /* Alttan boşluk bırakır.*/
-  border-radius: 8px; /* Köşeleri yuvarlar.*/
-  overflow: hidden; /* Görselin köşeleri yuvarlatılmış kutunun dışına taşmasını engeller.*/
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif bir gölge ekler.*/
+    /* Bu class, eğer HTML'de iki katmanlı yapı kullandıysanız, slaytları içerir. */
+    width: 100%;
 }
 
-.kayanresim img {
+/* Her bir Slayt Öğesi */
+.slayt {
+    /* KRİTİK: Varsayılan olarak slaytlar gizli olacak */
+    display: none; 
+}
+
+/* Aktif olarak gösterilen slayt (JS tarafından eklenir) */
+.goster {
+    display: block;
+}
+
+.kayanresim-kapsayici img {
   width: 100%; /* Görselin genişliğini %100 yapar.*/
   height: 350px; /* Görselin yüksekliğini sabit 350px yapar. */
   object-fit: cover; /* Görselin en boy oranını koruyarak kutuyu dolduracak şekilde keser.*/
   display: block; /* Görseli blok seviyesi element yapar.*/
 }
+/* --- SLIDER KONTROL DÜĞMELERİ --- */
 
+/* Geri ve İleri düğmeleri için genel stil */
+.geri, .ileri {
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* Dikeyde ortalamak için */
+    transform: translateY(-50%); /* Dikeyde tam ortalamak için */
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5); /* Yarı saydam siyah arka plan */
+    z-index: 10; /* Resmin üzerinde görünmesini sağlar */
+}
+
+/* İleri düğmesi sağa konumlandırılır */
+.ileri {
+    right: 0;
+    border-radius: 3px 0 0 3px; /* Sağ tarafı düz, sol tarafı yuvarlak */
+}
+
+/* Geri düğmesi sola konumlandırılır */
+.geri {
+    left: 0;
+    border-radius: 0 3px 3px 0; /* Sol tarafı düz, sağ tarafı yuvarlak */
+}
+
+/* Düğmelerin üzerine gelince daha belirgin hale gelmesi */
+.geri:hover, .ileri:hover {
+    background-color: rgba(0,0,0,0.8);
+}
 /* Haberler/Duyurular (bilg) */
 .bilg {
   display: flex; /* Haber ve duyuru kutularını yatay Flexbox ile düzenler.*/

@@ -2,7 +2,7 @@
 
 <head>
     <title>Proje</title>
-    <link href="style/deneme.css" rel="stylesheet"> 
+    <link href="style/deneme.css" rel="stylesheet">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
                         Ana Sayfa
                     </a>
                 </td>
-                
+
                 <td width="150">
                     <div class="dropdown">
                         <a href="" style="display:inline-block;
@@ -53,8 +53,7 @@ color:#fff; text-decoration:none; padding:8px 12px;">
         <div class="sidebar">
             <h3>Bağlantılar</h3>
             <ul>
-                <li><a
-                        href="https://giris.turkiye.gov.tr/Giris/gir?oauthClientId=947e3170-a5fb-11e4-bcd8-0800200c9a66&continue=https%3A%2F%2Fgiris.turkiye.gov.tr%2FOAuth2AuthorizationServer%2FAuthorizationController%3Fresponse_type%3Dcode%26client_id%3D947e3170-a5fb-11e4-bcd8-0800200c9a66%26state%3Db1nTAjQl3kg%253D6fMZTP5Cd5yCKA0wNPk7LzaCrIjeB6fcFrXvWQD4RBW8flgWZxj3dWxGejHkF1bgZw5tMFI6loqkMbxgCvodWl7S2qqMisyYAQiRQEFGXXrx502RhA7AJgzAfg%253D%253DuygulamaId%253D3573extraParams%253Durl%253Dsakaryaanadolulisesi%26scope%3DAd-Soyad%253BKimlik-Dogrula%253BIletisim-Bilgileri%26redirect_uri%3Dhttps%253A%252F%252Fmebbisyd.meb.gov.tr%252Fedevletlogin.aspx"
+                <li><a href="https://giris.turkiye.gov.tr/Giris/gir?oauthClientId=947e3170-a5fb-11e4-bcd8-0800200c9a66&continue=https%3A%2F%2Fgiris.turkiye.gov.tr%2FOAuth2AuthorizationServer%2FAuthorizationController%3Fresponse_type%3Dcode%26client_id%3D947e3170-a5fb-11e4-bcd8-0800200c9a66%26state%3Db1nTAjQl3kg%253D6fMZTP5Cd5yCKA0wNPk7LzaCrIjeB6fcFrXvWQD4RBW8flgWZxj3dWxGejHkF1bgZw5tMFI6loqkMbxgCvodWl7S2qqMisyYAQiRQEFGXXrx502RhA7AJgzAfg%253D%253DuygulamaId%253D3573extraParams%253Durl%253Dsakaryaanadolulisesi%26scope%3DAd-Soyad%253BKimlik-Dogrula%253BIletisim-Bilgileri%26redirect_uri%3Dhttps%253A%252F%252Fmebbisyd.meb.gov.tr%252Fedevletlogin.aspx"
                         target="_blank">Okul
                         Randevu</a></li>
                 <li><a href="html/galeri.html">Okulumuzdan Kareler</a></li>
@@ -65,15 +64,29 @@ color:#fff; text-decoration:none; padding:8px 12px;">
             </ul>
         </div>
         <div class="orta">
-            <div class="kayanresim">
-                <img src="resim/okul.jpg">
+            <div class="kayanresim-kapsayici">
+                <div class="kayanresim">
+                    <div class="slayt goster">
+                        <img src="resim/okul.jpg" alt="Okul">
+                    </div>
+                    <div class="slayt">
+                        <img src="resim/okul2.jpg" alt="Okul 1">
+                    </div>
+                    <div class="slayt">
+                        <img src="resim/okul3.jpg" alt="Okul 2">
+                    </div>
+                </div>
+
+                <a class="geri" onclick="guncelSlayt(-1)">&#10094;</a>
+                <a class="ileri" onclick="guncelSlayt(1)">&#10095;</a>
+
             </div>
             <div class="bilg">
                 <div class="haber">
                     <h3 align="center">Haberler</h3>
                     <ul>
                         <li>Bilişim Teknolojileri Online Sınav Başladı</li>
-                        <li><a href="html/kiyafet.html">Okul Kıyafetleri Hakkında Duyuru</a></li>
+                        <li><a href="html/kiyafet.html" style="color: inherit; text-decoration: none;">Okul Kıyafetleri Hakkında Duyuru</a></li>
                     </ul>
                 </div>
 
@@ -86,7 +99,7 @@ color:#fff; text-decoration:none; padding:8px 12px;">
                 </div>
             </div>
             <div class="metin" style="margin-top: 20px;">
-                <h2>Hoş Geldiniz! Gölbaşı Anadolu Lisesi</h2>
+                <h2>Gölbaşı Anadolu Lisesi</h2>
                 <p>
                     Okulumuz, geleceğe yön verecek, donanımlı ve etik değerlere sahip bireyler yetiştirme misyonuyla
                     yola çıkmıştır.
@@ -96,7 +109,10 @@ color:#fff; text-decoration:none; padding:8px 12px;">
                     sağlayarak onların potansiyellerini en üst düzeye çıkarmayı amaçlıyoruz.
                 </p>
                 <p>
-                    <strong>Vizyonumuz:</strong> Ülkemizin en prestijli eğitim kurumlarından biri olarak, bilim, sanat
+                    <a href="html/hakkimizda.html" style="color: inherit; text-decoration: none;">
+            <strong>Vizyonumuz:</strong>
+                    </a> 
+                    Ülkemizin en prestijli eğitim kurumlarından biri olarak, bilim, sanat
                     ve spor alanlarında ulusal ve uluslararası düzeyde tanınan, öncü bir okul olmaktır.
                 </p>
                 <hr>
@@ -115,7 +131,38 @@ color:#fff; text-decoration:none; padding:8px 12px;">
     <footer align="center" class="footer" style="color:#fff">
         &copy; 2025 Gölbaşı Anadolu Lisesi - Tüm Hakları Saklıdır.
     </footer>
+    <script>
+        let slaytIndeksi = 1;
+        gosterSlaytlar(slaytIndeksi); // Başlangıçta ilk slaytı göster
 
+        // İleri/Geri düğmesine tıklandığında çalışır
+        function guncelSlayt(n) {
+            gosterSlaytlar(slaytIndeksi += n);
+        }
+
+        function gosterSlaytlar(n) {
+            let i;
+            let slaytlar = document.getElementsByClassName("slayt");
+
+            // Eğer son slayttan ileri gidilirse, başa dön
+            if (n > slaytlar.length) {
+                slaytIndeksi = 1
+            }
+
+            // Eğer ilk slayttan geri gidilirse, sona dön
+            if (n < 1) {
+                slaytIndeksi = slaytlar.length
+            }
+
+            // Tüm slaytları gizle
+            for (i = 0; i < slaytlar.length; i++) {
+                slaytlar[i].style.display = "none";
+            }
+
+            // Şu anki slaytı göster
+            slaytlar[slaytIndeksi - 1].style.display = "block";
+        }
+    </script>
 </body>
 
 </html>
